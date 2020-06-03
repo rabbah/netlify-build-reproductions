@@ -1,0 +1,36 @@
+{
+  "name": "netlify-build-reproductions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "format": "prettier --write .",
+    "format:ci": "prettier --check .",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/erezrokah/netlify-build-reproductions.git"
+  },
+  "author": "Erez ROkah",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/erezrokah/netlify-build-reproductions/issues"
+  },
+  "homepage": "https://github.com/erezrokah/netlify-build-reproductions#readme",
+  "private": true,
+  "devDependencies": {
+    "@commitlint/cli": "^8.1.0",
+    "@commitlint/config-conventional": "^8.1.0",
+    "eslint": "^7.0.0",
+    "husky": "^4.0.7",
+    "prettier": "^2.0.0"
+  },
+  "dependencies": {},
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  }
+}
