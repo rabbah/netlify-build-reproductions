@@ -11,7 +11,6 @@ exports.handler = async (event) => {
     const inputBuffer = await fetch(url).then((r) => r.buffer());
     const outputBuffer = await sharp(inputBuffer).resize(200).toBuffer();
 
-    // your server-side functionality
     const body = outputBuffer.toString('base64');
     console.log(`Successfully converted '${url}' to '${body}'`);
     return {
