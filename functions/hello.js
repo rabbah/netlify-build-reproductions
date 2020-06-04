@@ -1,6 +1,6 @@
 exports.handler = async (event) => {
   try {
-    console.log('request: ' + JSON.stringify(event));
+    console.log('request: ' + JSON.stringify(event, null, 2));
     return {
       statusCode: 200,
       body: 'Hello World',
