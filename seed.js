@@ -1,5 +1,10 @@
 #!/usr/bin/env node
 const { argv } = require('yargs');
+
+if (!argv.siteDir) {
+  throw new Error('Please provide --siteDir');
+}
+
 const path = require('path');
 const { promises: fs } = require('fs');
 const randomstring = require('randomstring');
@@ -57,14 +62,47 @@ const seedSite = async ({ dir, fileCount, minSize, maxSize, depth }) => {
   }
 };
 
-if (!argv.siteDir) {
-  throw new Error('Please provide --siteDir');
-}
+const functionTemplate = () => {
+  console.log('MESSAGE');
+  return {
+    statusCode: 200,
+    body: 'pong',
+  };
+};
 
-seedSite({
-  dir: path.resolve(argv.siteDir),
-  fileCount: argv.fileCount || 1000,
-  minSize: (argv.minSize || 10) * 1024, // convert to KB
-  maxSize: (argv.maxSize || 20) * 1024, // convert to KB
-  depth: argv.depth || 5,
-});
+const seedFunctions = async ({ dir, count, size }) => {
+  await fs.rmdir(dir, { recursive: true });
+  await fs.mkdir(dir, { recursive: true });
+
+  const functions = new Array(count).fill(dir).map((dir, index) => {
+    const filename = `handler_${index}.js`;
+    const message = randomstring.generate(size);
+    return {
+      handler: functionTemplate.toString().replace('MESSAGE', message),
+      filePath: path.join(dir, filename),
+    };
+  });
+
+  await Promise.all(
+    functions.map(({ filePath, handler }) => {
+      return fs.writeFile(filePath, `exports.handler = ${handler}`);
+    }),
+  );
+};
+
+const seed = async () => {
+  await seedSite({
+    dir: path.resolve(argv.siteDir),
+    fileCount: argv.fileCount || 1000,
+    minSize: (argv.minSize || 10) * 1024, // convert to KB
+    maxSize: (argv.maxSize || 20) * 1024, // convert to KB
+    depth: argv.depth || 5,
+  });
+  await seedFunctions({
+    dir: path.resolve(argv.functionsDir || 'functions'),
+    count: argv.functionCount || 10,
+    size: (argv.functionSize || 1) * 1024, // convert to KB
+  });
+};
+
+seed();
