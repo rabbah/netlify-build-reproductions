@@ -27,7 +27,10 @@
     "husky": "^4.0.7",
     "prettier": "^2.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "randomstring": "^1.1.5",
+    "yargs": "^16.0.0"
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
