@@ -8,4 +8,11 @@
     YARN_FLAGS = "--frozen-lockfile"
     YARN_VERSION = "1.22.4"
     NODE_VERSION = "12"
-    
+  
+[[redirects]]
+  from = "/a"
+  to = "/docs/a"
+
+[[redirects]]
+  from = "/docs/*"
+  to = "/docs/b/:splat"
