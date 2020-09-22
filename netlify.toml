@@ -1,4 +1,4 @@
-[[redirects]]
-  from = "/test-404"
-  to = "/foo"
-  status = 404
+[build]
+publish = 'public'
+[dev]
+autoLaunch = false
