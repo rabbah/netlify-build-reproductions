@@ -27,7 +27,9 @@
     "husky": "^4.0.7",
     "prettier": "^2.0.0"
   },
-  "dependencies": {},
+  "dependencies": {
+    "@netlify/plugin-sitemap": "^0.3.4"
+  },
   "husky": {
     "hooks": {
       "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
