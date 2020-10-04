@@ -6041,10 +6041,10 @@ nested-error-stacks@^2.0.0:
     webpack "^4.17.1"
     webpack-merge "^4.1.4"
 
-netlify-plugin-nimbella@^1.4.1:
-  version "1.4.1"
-  resolved "https://registry.yarnpkg.com/netlify-plugin-nimbella/-/netlify-plugin-nimbella-1.4.1.tgz#e9b35bb11f3d2d4fdf7e2dc07025e132cdada6ab"
-  integrity sha512-IMdEQD5XDULWMznrSCHJBBnGkoDRf0d2k0RD2inZO0tW9NzGY1G2TopyCpVljnIwwXO9npa//pZlbUzeNJsvTA==
+netlify-plugin-nimbella@^1.5.0:
+  version "1.5.0"
+  resolved "https://registry.yarnpkg.com/netlify-plugin-nimbella/-/netlify-plugin-nimbella-1.5.0.tgz#830e92aa1e7905446bad3add3719af2e8d47cdb4"
+  integrity sha512-SXZESgFyUlomTUAG1phkUJUNuCljga50nZxlpvYUKdXu5d3eXPKkwxxfnlhZgVOCFdoqIwUwES1tHoI7S/s/Cw==
   dependencies:
     "@iarna/toml" "^2.2.5"
     cpx "^1.5.0"
