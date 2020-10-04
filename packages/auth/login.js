@@ -1,4 +1,4 @@
-export const login = (event, content) => {
+const login = (event, content) => {
   console.log(event);
 
   return {
@@ -6,3 +6,5 @@ export const login = (event, content) => {
     body: 'Login',
   };
 };
+
+exports.main = login;

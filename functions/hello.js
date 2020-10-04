@@ -1,8 +1,8 @@
-export const hello = (event, content) => {
+export const handler = (event, content) => {
   console.log(event);
 
-  return {
+  return Promise.resolve({
     statusCode: 200,
     body: 'Hello World',
-  };
+  });
 };
