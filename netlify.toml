@@ -15,3 +15,5 @@ package = "@netlify/plugin-sitemap"
 
   [plugins.inputs]
   trailingSlash = true
+  changeFreq = "daily"
+  priority = 0.5
